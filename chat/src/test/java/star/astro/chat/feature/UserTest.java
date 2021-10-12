@@ -26,7 +26,8 @@ public class UserTest {
     @Test
     void registerAndLogin() throws Exception {
         Map<String, String> params = new LinkedHashMap<>();
-        params.put("username", "Jerry");
+        String testUsername = "Jerry"+ Math.floor(Math.random()*(100000-4)+5);
+        params.put("username", testUsername);
         params.put("password", "Best");
         RequestBuilder registerRequest = MockMvcRequestBuilders.post("/users/register")
                 .contentType(MediaType.APPLICATION_JSON)
